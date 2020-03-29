@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="JS/functions.js"></script>
+        <title>Whereabouts | Check in and out of essential services</title>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Whereabouts</h1>
+            <h2>Check in and out of essential services</h2>
+            <br>
+            <hr>
+            <br>
+            <form method="POST" onsubmit=checkForm()>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" onblur=checkValid(this)><br>
+                <label for="phone">Contact Phone Number</label>
+                <input type="tel" id="phone" name="phone" onblur=checkValid(this)><br>
+                <br>
+                <hr>
+                <div id="locationfinder">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location">
+                    <button type="button" onclick=findLocation()>Find</button><br>
+                    <p><i>Press the "Find" button and your location will appear in the textbox.<br>
+                        If the location is wrong, try again nearer the builing you are entering.</i>
+                    </p>
+                </div>
+                <hr>
+                <br>
+                <label for="checkin">Entry Time</label>
+                <input type="datetime" id="checkin" name="checkin" readonly="true">
+                <button type="button" onclick=checkIn()>Check In</button><br>
+                <label for="checkin">Exit Time</label>
+                <input type="datetime" id="checkout"name="checkout" readonly="true">
+                <button type="button" onclick=checkOut()>Check Out</button><br>
+                <div id="submitdiv">
+                    <button type="submit" id="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
