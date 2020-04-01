@@ -11,8 +11,9 @@
     $checkin = $_POST['checkin'];
     $checkout = $_POST['checkout'];
 
-    $query = "INSERT INTO yourtablename (name, phone, location, checkin, checkout) VALUES ("+"'"$name"','"+"'"$phone"','"+"'"$location"','"+"'"$checkin"','"+"'"$checkout"')";
-    $result = $conn->query($query);
+    $query = $conn->prepare("INSERT INTO yourtablename (name, phone, location, checkin, checkout) VALUES (?, ?, ?, ?, ?)");
+    $query->bind_param("sisss", $name, $phone, $location, $checkin, $checkout);
+    $result = $query->execute();
 
     if ($result === TRUE) {
         echo "<div id='success'><h2>Recorded successully! Thank you and stay safe</h2></div>";
